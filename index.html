@@ -232,6 +232,8 @@ h1 span {
   transition: transform 0.2s;
 }
 .pathway-circle:hover { transform: scale(1.1); }
+.pathway-link { text-decoration: none; display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.pathway-link:focus-visible .pathway-circle { outline: 2px solid currentColor; outline-offset: 3px; }
 .pathway-label {
   font-family: var(--mono);
   font-size: 0.6rem;
@@ -350,6 +352,8 @@ h1 span {
 }
 .status-live     { background: rgba(78,203,113,0.15); color: var(--m1); border: 1px solid rgba(78,203,113,0.25); }
 .status-live-amb { background: rgba(232,160,48,0.12); color: var(--m2); border: 1px solid rgba(232,160,48,0.22); }
+.status-live-sky { background: rgba(96,168,232,0.12); color: var(--m3); border: 1px solid rgba(96,168,232,0.25); }
+.status-live-tel { background: rgba(80,200,176,0.12); color: var(--m4); border: 1px solid rgba(80,200,176,0.25); }
 .status-soon     { background: rgba(255,255,255,0.06); color: var(--text3); border: 1px solid var(--border2); }
 
 .module-title {
@@ -436,6 +440,10 @@ h1 span {
 .cta-m1:hover { background: #6cd885; }
 .cta-m2 { background: var(--m2); color: #180e00; }
 .cta-m2:hover { background: #f0b848; }
+.cta-m3 { background: var(--m3); color: #020c18; }
+.cta-m3:hover { background: #80c0f0; }
+.cta-m4 { background: var(--m4); color: #021210; }
+.cta-m4:hover { background: #70d8c0; }
 .cta-soon { background: var(--bg3); color: var(--text3); border: 1px solid var(--border2); cursor: default; }
 
 .cta-arrow {
@@ -443,16 +451,6 @@ h1 span {
   transition: transform 0.18s;
 }
 .module-card:hover .cta-arrow { transform: translateX(4px); }
-
-/* Coming soon overlay */
-.module-card.coming-soon {
-  opacity: 0.65;
-  pointer-events: none;
-}
-.module-card.coming-soon:hover {
-  transform: none;
-  box-shadow: none;
-}
 
 /* ===== WHAT'S INSIDE SECTION ===== */
 .features-strip {
@@ -606,23 +604,31 @@ footer {
 <nav aria-label="Metabolic pathway overview">
   <div class="pathway-strip" role="list">
     <div class="pathway-node" role="listitem">
-      <div class="pathway-circle pc-m1" aria-label="Module 1: Glycolysis">M1</div>
-      <div class="pathway-label">Glycolysis</div>
+      <a class="pathway-link" href="https://rpg007-github.github.io/Glycolysis/" aria-label="Go to Module 1: Glycolysis">
+        <div class="pathway-circle pc-m1">M1</div>
+        <div class="pathway-label">Glycolysis</div>
+      </a>
     </div>
     <div class="pathway-arrow arr-m1" aria-hidden="true"></div>
     <div class="pathway-node" role="listitem">
-      <div class="pathway-circle pc-m2" aria-label="Module 2: Krebs Cycle">M2</div>
-      <div class="pathway-label">Krebs Cycle</div>
+      <a class="pathway-link" href="https://rpg007-github.github.io/Krebs/" aria-label="Go to Module 2: Krebs Cycle">
+        <div class="pathway-circle pc-m2">M2</div>
+        <div class="pathway-label">Krebs Cycle</div>
+      </a>
     </div>
     <div class="pathway-arrow arr-m2" aria-hidden="true"></div>
     <div class="pathway-node" role="listitem">
-      <div class="pathway-circle pc-m3" aria-label="Module 3: Oxidative Phosphorylation">M3</div>
-      <div class="pathway-label">Ox. Phos.</div>
+      <a class="pathway-link" href="https://rpg007-github.github.io/OxPhos/" aria-label="Go to Module 3: Oxidative Phosphorylation">
+        <div class="pathway-circle pc-m3">M3</div>
+        <div class="pathway-label">Ox. Phos.</div>
+      </a>
     </div>
     <div class="pathway-arrow arr-m3" aria-hidden="true"></div>
     <div class="pathway-node" role="listitem">
-      <div class="pathway-circle pc-m4" aria-label="Module 4: Integration">M4</div>
-      <div class="pathway-label">Integration</div>
+      <a class="pathway-link" href="https://rpg007-github.github.io/Metabolic-Integration/" aria-label="Go to Module 4: Metabolic Integration">
+        <div class="pathway-circle pc-m4">M4</div>
+        <div class="pathway-label">Integration</div>
+      </a>
     </div>
   </div>
 </nav>
@@ -636,7 +642,7 @@ footer {
   <div class="modules">
 
     <!-- MODULE 1 -->
-    <a class="module-card card-m1" href="glycolysis.html" aria-label="Module 1: Glycolysis and the Metabolism Gateway — available now">
+    <a class="module-card card-m1" href="https://rpg007-github.github.io/Glycolysis/" aria-label="Module 1: Glycolysis and the Metabolism Gateway — available now">
       <div class="card-inner">
         <div class="module-num">
           <span style="color:var(--m1)">Module 01</span>
@@ -678,7 +684,7 @@ footer {
     </a>
 
     <!-- MODULE 2 -->
-    <a class="module-card card-m2" href="krebs-cycle.html" aria-label="Module 2: The Krebs Cycle — available now">
+    <a class="module-card card-m2" href="https://rpg007-github.github.io/Krebs/" aria-label="Module 2: The Krebs Cycle — available now">
       <div class="card-inner">
         <div class="module-num">
           <span style="color:var(--m2)">Module 02</span>
@@ -720,16 +726,16 @@ footer {
     </a>
 
     <!-- MODULE 3 -->
-    <div class="module-card card-m3 coming-soon" aria-label="Module 3: Oxidative Phosphorylation — coming soon" role="article">
+    <a class="module-card card-m3" href="https://rpg007-github.github.io/OxPhos/" aria-label="Module 3: Oxidative Phosphorylation — available now">
       <div class="card-inner">
         <div class="module-num">
           <span style="color:var(--m3)">Module 03</span>
-          <span class="module-status status-soon" role="status">Coming Soon</span>
+          <span class="module-status status-live-sky" role="status">Live</span>
         </div>
         <div class="module-title">Oxidative Phosphorylation</div>
         <div class="module-subtitle">The ATP Harvest</div>
         <p class="module-desc">The electron transport chain — Complexes I through V, chemiosmosis, the proton motive force, and how ~28 of your 30 ATP are actually made. Inhibitors, uncouplers, and the clinical pharmacology of mitochondrial medicine.</p>
-        <div class="topic-pills" aria-label="Topics planned">
+        <div class="topic-pills" aria-label="Topics covered">
           <span class="pill">ETC Complexes I–V</span>
           <span class="pill">Chemiosmosis</span>
           <span class="pill">ATP Synthase</span>
@@ -737,17 +743,17 @@ footer {
           <span class="pill">Cyanide / CO Poisoning</span>
           <span class="pill">Brown Fat / UCP1</span>
         </div>
-        <div class="stats-row" aria-label="Planned module statistics">
+        <div class="stats-row" aria-label="Module statistics">
           <div class="stat">
             <span class="stat-val" style="color:var(--m3)">35</span>
             <span class="stat-label">MC Questions</span>
           </div>
           <div class="stat">
-            <span class="stat-val" style="color:var(--m3)">~40</span>
+            <span class="stat-val" style="color:var(--m3)">35</span>
             <span class="stat-label">Flashcards</span>
           </div>
           <div class="stat">
-            <span class="stat-val" style="color:var(--m3)">18</span>
+            <span class="stat-val" style="color:var(--m3)">13</span>
             <span class="stat-label">Short Answers</span>
           </div>
           <div class="stat">
@@ -755,21 +761,23 @@ footer {
             <span class="stat-label">Sections</span>
           </div>
         </div>
-        <span class="card-cta cta-soon" aria-hidden="true">In Development</span>
+        <span class="card-cta cta-m3" aria-hidden="true">
+          Open Module <span class="cta-arrow">→</span>
+        </span>
       </div>
-    </div>
+    </a>
 
     <!-- MODULE 4 -->
-    <div class="module-card card-m4 coming-soon" aria-label="Module 4: Metabolic Integration — coming soon" role="article">
+    <a class="module-card card-m4" href="https://rpg007-github.github.io/Metabolic-Integration/" aria-label="Module 4: Metabolic Integration — available now">
       <div class="card-inner">
         <div class="module-num">
           <span style="color:var(--m4)">Module 04</span>
-          <span class="module-status status-soon" role="status">Coming Soon</span>
+          <span class="module-status status-live-tel" role="status">Live</span>
         </div>
         <div class="module-title">Metabolic Integration</div>
         <div class="module-subtitle">The Full Picture</div>
         <p class="module-desc">Gluconeogenesis, glycogen metabolism, fatty acid oxidation and synthesis, the pentose phosphate pathway in full, hormonal regulation (insulin/glucagon axis), and how the fed/fasted/exercise states rewire the entire metabolic network.</p>
-        <div class="topic-pills" aria-label="Topics planned">
+        <div class="topic-pills" aria-label="Topics covered">
           <span class="pill">Gluconeogenesis</span>
           <span class="pill">Glycogen Metabolism</span>
           <span class="pill">β-Oxidation</span>
@@ -777,27 +785,29 @@ footer {
           <span class="pill">Insulin / Glucagon</span>
           <span class="pill">Fed · Fasted · Exercise</span>
         </div>
-        <div class="stats-row" aria-label="Planned module statistics">
+        <div class="stats-row" aria-label="Module statistics">
           <div class="stat">
-            <span class="stat-val" style="color:var(--m4)">40</span>
+            <span class="stat-val" style="color:var(--m4)">35</span>
             <span class="stat-label">MC Questions</span>
           </div>
           <div class="stat">
-            <span class="stat-val" style="color:var(--m4)">~50</span>
+            <span class="stat-val" style="color:var(--m4)">37</span>
             <span class="stat-label">Flashcards</span>
           </div>
           <div class="stat">
-            <span class="stat-val" style="color:var(--m4)">20</span>
+            <span class="stat-val" style="color:var(--m4)">12</span>
             <span class="stat-label">Short Answers</span>
           </div>
           <div class="stat">
-            <span class="stat-val" style="color:var(--m4)">10</span>
+            <span class="stat-val" style="color:var(--m4)">8</span>
             <span class="stat-label">Sections</span>
           </div>
         </div>
-        <span class="card-cta cta-soon" aria-hidden="true">In Development</span>
+        <span class="card-cta cta-m4" aria-hidden="true">
+          Open Module <span class="cta-arrow">→</span>
+        </span>
       </div>
-    </div>
+    </a>
 
   </div>
 </section>
